@@ -148,8 +148,51 @@ class Program
         }
         if (input=="3")
         {
-            
-            
+            var testservice = new TestService();
+            Console.WriteLine("1-Add test");
+            Console.WriteLine("2.Delete test");
+            Console.WriteLine("3.Update test");
+            Console.WriteLine("4.Get test");
+            Console.Write("Enter");
+            var input1 = Console.ReadLine();
+            if (input1=="1")
+            {
+                var test = new Test();
+            }
+
+            if (input1=="2")
+            {
+                Console.WriteLine("Enter test id: ");
+                var testId = Guid.Parse(Console.ReadLine());
+                testservice.DeleteTest(testId);
+                Console.WriteLine("Test deleted");
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
+                RunFrontEnd();
+                
+            }
+
+            if (input1=="3")
+            {
+                Console.WriteLine("Enter test id: ");
+                var testId = Guid.Parse(Console.ReadLine());
+                testservice.UpdateTest(testId);
+                Console.WriteLine("Test updated");
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
+            }
+
+            if (input1=="4")
+            {
+                Console.WriteLine("Enter test id: ");
+                var testId = Guid.Parse(Console.ReadLine());
+                var test = testservice.GetById(testId);
+                Console.WriteLine(test);
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
+            }
         }
         else
         {
